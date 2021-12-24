@@ -1,0 +1,38 @@
+@import "global";
+@import "variables";
+
+.body-wrapper {
+    padding: 20px;
+}
+
+.page-title {
+    text-align: center;
+    color: white;
+}
+
+.scroll {
+    margin-top: 30px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+}
+canvas {
+    max-height: 500px;
+}
+
+button {
+    border: none;
+    background: none;
+    position: absolute;
+    cursor: pointer;
+    &#prev {
+        left: 0;
+    }
+    &#next {
+        right: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,22 @@
+@import "variables";
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background: $soft-azure;
+    background: $azure-pink;
+}
+
+.flex {
+    display: flex;
+    &-between {
+        justify-content: space-between;
+    }
+}

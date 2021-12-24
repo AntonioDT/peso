@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="app/js/script.js"></script>
+    <link rel="stylesheet" href="dist/style.css">
+    <title>Peso</title>
+</head>
+<body onload="initChart()">
+    <div class="page-wrapper">
+        <div class="body-wrapper">
+            <h1 class="page-title">PESO</h1>
+            <div class="chart-container">
+                <canvas id="peso-chart"></canvas>
+            </div>
+            <div class="scroll">
+                <div class="flex">
+                    <button id="prev" onclick="slideLeft()"><img src="images/prev.png" height="36" width="36"></button>
+                    <button id="next" class="hidden" onclick="slideRight()"><img src="images/next.png" height="36" width="36"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
