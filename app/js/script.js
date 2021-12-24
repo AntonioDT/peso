@@ -34,7 +34,7 @@ function setConfig(dataJson){
     let data = {
         labels: labels,
         datasets: [{
-            label: "Peso",
+            label: "Peso (kg)",
             data: values
         }]
     }
