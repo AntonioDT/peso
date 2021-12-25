@@ -1,6 +1,7 @@
 
 let DATA;
-let INDEX = 0;
+let LEFT_INDEX = 0;
+let RIGHT_INDEX = 0;
 let pesoChart;
 let btnNext;
 let btnPrev;
@@ -61,8 +62,9 @@ function drawChart(config, ctx) {
 function parseData() {
     let parsedData = [];
     let n = DATA.length;
-    INDEX = n - 7;
-    for (let i = INDEX; i < n; i++) {
+    LEFT_INDEX = n - 7;
+    RIGHT_INDEX = n;
+    for (let i = LEFT_INDEX; i < n; i++) {
         parsedData.push(DATA[i]);
     }
     return parsedData;
@@ -71,14 +73,13 @@ function parseData() {
 function slideLeft() {
     btnNext.removeClass("hidden");
     let parsedData = [];
-    let n = INDEX;
-    if (INDEX <= 7) {
-        INDEX = 0;
+    RIGHT_INDEX = LEFT_INDEX;
+    LEFT_INDEX -= 7;
+    if (LEFT_INDEX <= 0) {
+        LEFT_INDEX = 0;
         btnPrev.addClass("hidden");
-    } else {
-        INDEX = n - 7;
-    }
-    for (let i = INDEX; i < n; i++) {
+    } 
+    for (let i = LEFT_INDEX; i < RIGHT_INDEX; i++) {
         parsedData.push(DATA[i]);
     }
     updateChart(parsedData);
@@ -87,14 +88,13 @@ function slideLeft() {
 function slideRight() {
     btnPrev.removeClass("hidden");
     let parsedData = [];
-    INDEX = INDEX + 7;
-    let n = INDEX + 7;
-    if (n >= DATA.length) {
-        n = DATA.length;
-        INDEX = n - 7;
+    LEFT_INDEX = RIGHT_INDEX;
+    RIGHT_INDEX += 7;
+    if (RIGHT_INDEX >= DATA.length) {
+        RIGHT_INDEX = DATA.length;
         btnNext.addClass("hidden");
     }
-    for (let i = INDEX; i < n; i++) {
+    for (let i = LEFT_INDEX; i < RIGHT_INDEX; i++) {
         parsedData.push(DATA[i]);
     }
     updateChart(parsedData);
