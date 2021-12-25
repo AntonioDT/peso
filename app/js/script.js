@@ -78,6 +78,15 @@ function setConfig(dataJson){
     let options = {
         legend: {
             display: false
+        },
+        scales: {
+            y: {
+                max: 60,
+                min: 53,
+                ticks: {
+                    stepSize: 0.5
+                }
+            }
         }
     }
 
