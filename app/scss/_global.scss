@@ -20,3 +20,10 @@ body {
         justify-content: space-between;
     }
 }
+
+.visible-large {
+    display: none;
+    @media(min-width: 1024px) {
+        display: block;
+    }
+}

@@ -5,10 +5,45 @@ let RIGHT_INDEX = 0;
 let pesoChart;
 let btnNext;
 let btnPrev;
+let xDown = null;
+let yDown = null;
 
 $(document).ready(function () {
     btnNext =  $("#next");
     btnPrev =  $("#prev");
+    $('.chart-container').on("touchstart", function(evt) {
+        const firstTouch = evt.touches[0];                                      
+        xDown = firstTouch.clientX;                                      
+        yDown = firstTouch.clientY; 
+    });
+    $('.chart-container').on("touchmove", function(evt) {
+        if (!xDown || !yDown) {
+            return;
+        }
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                console.log("right swipe!");
+                if (RIGHT_INDEX < DATA.length) {
+                    slideRight();
+                }
+            } else {
+                console.log("left swipe")
+                if (LEFT_INDEX > 0) {
+                    slideLeft();
+                }
+                
+            }                       
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null; 
+        });
 })
 
 function initChart() {
