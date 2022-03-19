@@ -81,7 +81,7 @@ function setConfig(dataJson){
         },
         scales: {
             y: {
-                max: 60,
+                max: 65,
                 min: 53,
                 ticks: {
                     stepSize: 0.5
